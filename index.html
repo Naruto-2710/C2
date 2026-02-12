@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magical Code Quest - Level 2</title>
+    <style>
+        body {
+            background-color: black;
+            color: gold;
+            font-family: Georgia, serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: gold;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        /* Center image properly */
+        #magicImage {
+            display: none;
+            margin: 30px auto;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>🧙 Magical Code Quest</h1>
+<hr>
+
+<h2>The Head of the Castle</h2>
+
+<p><b>Question:</b></p>
+<p>What is Center No of Your Current College?</p>
+
+<input type="text" id="answer" placeholder="Enter your answer here">
+<br>
+<button onclick="checkAnswer()">Submit</button>
+
+<div id="result"></div>
+
+<img id="magicImage" src="B2.jpeg" width="400">
+
+<script>
+
+function checkAnswer() {
+
+    var userInput = document.getElementById("answer").value;
+
+    // Clean the input
+    userInput = userInput.toLowerCase().trim();
+    userInput = userInput.replace(/\./g, "");   // remove dots
+    userInput = userInput.replace(/\s+/g, " "); // remove extra spaces
+
+    var correctAnswer = "461";
+
+    if(userInput === correctAnswer) {
+
+        document.getElementById("result").innerHTML =
+        "<h3>✨ Correct, Wizard! ✨</h3>" +
+        "<p>🚂 Congrats, wizards! You made it onto the Hogwarts Express just in time!</p>" +
+        "<p>🏰 To reach Hogwarts, find the magical images hidden around the campus.</p>" +
+        "<p>🔍 Your adventure continues there!</p>";
+
+        document.getElementById("magicImage").style.display = "block";
+
+    } else {
+
+        document.getElementById("result").innerHTML =
+        "<h3>❌ Incorrect Answer</h3>" +
+        "<p>The castle gates remain closed. Try again.</p>";
+
+        document.getElementById("magicImage").style.display = "none";
+    }
+}
+
+
+</script>
+
+</body>
+</html>
